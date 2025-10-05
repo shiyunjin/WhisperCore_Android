@@ -1,6 +1,7 @@
 plugins {
 	alias(libs.plugins.android.library)
 	alias(libs.plugins.kotlin.android)
+	id("maven-publish")
 }
 
 android {
@@ -126,4 +127,17 @@ dependencies {
 	androidTestImplementation(libs.mockito.android)
 	androidTestImplementation(libs.mockito.kotlin)
 	androidTestImplementation(libs.kotlinx.coroutines.test)
+}
+
+afterEvaluate {
+	publishing {
+		publications {
+			create<MavenPublication>("release") {
+				from(components["release"])
+				groupId = "com.redravencomputing"
+				artifactId = "whispercore"
+				version = "1.0.0-SNAPSHOT"
+			}
+		}
+	}
 }
