@@ -69,10 +69,11 @@ android {
 			// }
 
             externalNativeBuild {
-                cmake {
-                    cppFlags "-Wl,-z,max-page-size=16384"
-                }
-            }
+			    cmake {
+			        cppFlags("-Wl,-z,max-page-size=16384")
+			    }
+			}
+
 		}
 
 		// It's good practice to also configure debug type for native builds
@@ -112,11 +113,12 @@ android {
 		unitTests.isReturnDefaultValues = true
 	}
 
-    packagingOptions {
-        jniLibs {
-            useLegacyPackaging true
-        }
-    }
+    packaging {
+	    jniLibs {
+	        useLegacyPackaging = true
+	    }
+	}
+
 }
 
 kotlin {
