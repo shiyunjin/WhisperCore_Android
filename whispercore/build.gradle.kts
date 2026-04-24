@@ -36,7 +36,8 @@ android {
 					"-DGGML_METAL_OFF=ON",
 					"-DGGML_OPENCL_OFF=ON",
 					"-DGGML_VULKAN_OFF=ON",
-					"-DANDROID_EXT_MEM_ALIGNMENT=16384"
+					"-DANDROID_EXT_MEM_ALIGNMENT=16384",
+					"-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-z,max-page-size=16384"
 				))
 				// ABI Filters: Specify which native architectures to build for.
 				// It's good practice to define these.
